@@ -4,6 +4,7 @@ using System.Net;
 using Enums;
 using Unity.VisualScripting;
 using UnityEngine;
+using UnityEngine.Serialization;
 using UnityEngine.UI;
 using UnityEngine.UIElements;
 
@@ -17,9 +18,11 @@ public class GameManager : MonoBehaviour
     public GameObject panelGameOver;
     public GameObject panelPlay;
 
-    [SerializeField] private Text Score;
-    [SerializeField] private Text LivesLeft; 
+    [SerializeField] private Text score;
+    [SerializeField] private Text livesLeft; 
+    [SerializeField] private GameObject asteroidSpawnerPrefab;
     
+    private GameObject _asteroidSpawner;
     private int _score;
     private GameObject _player;
     private StateEnum _currentState;
@@ -29,9 +32,9 @@ public class GameManager : MonoBehaviour
     void Start()
     {
         _currentLives = RemainingLives;
-        LivesLeft.text = _currentLives.ToString();
+        livesLeft.text = _currentLives.ToString();
         _score = 0;
-        Score.text = _score.ToString();
+        score.text = _score.ToString();
         SwitchState(StateEnum.MENU);
     }
 
@@ -46,7 +49,7 @@ public class GameManager : MonoBehaviour
                 if (Input.GetButtonDown("Cancel"))
                     SwitchState(StateEnum.PAUSE);
                 _score++;
-                Score.text = _score.ToString();
+                score.text = _score.ToString();
                 break;
             case StateEnum.PAUSE:
                 break;
@@ -71,6 +74,7 @@ public class GameManager : MonoBehaviour
                 break;
             case StateEnum.START:
                 if (!_player) _player = Instantiate(_playerPrefab);
+                if (!_asteroidSpawner) _asteroidSpawner = Instantiate(asteroidSpawnerPrefab);
                 state = StateEnum.PLAY;
                 BeginState(state);
                 break;

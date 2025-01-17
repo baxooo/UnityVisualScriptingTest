@@ -2465,8 +2465,9 @@ MonoBehaviour:
   panelPause: {fileID: 1674823598}
   panelGameOver: {fileID: 166945482}
   panelPlay: {fileID: 313122271}
-  Score: {fileID: 568347901}
-  LivesLeft: {fileID: 2113610176}
+  score: {fileID: 568347901}
+  livesLeft: {fileID: 2113610176}
+  asteroidSpawnerPrefab: {fileID: 1170568472817230655, guid: 1acf396e5dd81074db30bef761638b18, type: 3}
 --- !u!4 &2007675269
 Transform:
   m_ObjectHideFlags: 0
