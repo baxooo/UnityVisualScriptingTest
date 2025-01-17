@@ -2241,7 +2241,19 @@ MonoBehaviour:
   m_TargetGraphic: {fileID: 1757052081}
   m_OnClick:
     m_PersistentCalls:
-      m_Calls: []
+      m_Calls:
+      - m_Target: {fileID: 2007675268}
+        m_TargetAssemblyTypeName: GameManager, Assembly-CSharp
+        m_MethodName: OnRestartPressed
+        m_Mode: 1
+        m_Arguments:
+          m_ObjectArgument: {fileID: 0}
+          m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
+          m_IntArgument: 0
+          m_FloatArgument: 0
+          m_StringArgument: 
+          m_BoolArgument: 0
+        m_CallState: 2
 --- !u!114 &1757052081
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -2450,9 +2462,11 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   _playerPrefab: {fileID: 6599743622469592965, guid: 100161c0c4371054c947faa767d253ee, type: 3}
   panelMenu: {fileID: 692948008}
-  panelPause: {fileID: 313122271}
-  panelGameOver: {fileID: 1674823598}
-  panelPlay: {fileID: 166945482}
+  panelPause: {fileID: 1674823598}
+  panelGameOver: {fileID: 166945482}
+  panelPlay: {fileID: 313122271}
+  Score: {fileID: 568347901}
+  LivesLeft: {fileID: 2113610176}
 --- !u!4 &2007675269
 Transform:
   m_ObjectHideFlags: 0

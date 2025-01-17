@@ -4,33 +4,55 @@ using System.Net;
 using Enums;
 using Unity.VisualScripting;
 using UnityEngine;
+using UnityEngine.UI;
+using UnityEngine.UIElements;
 
 public class GameManager : MonoBehaviour
 {
     [SerializeField] private GameObject _playerPrefab;
-    private int _remainingLives = 3;
+    private const int RemainingLives = 3;
     
     public GameObject panelMenu;
     public GameObject panelPause;
     public GameObject panelGameOver;
     public GameObject panelPlay;
+
+    [SerializeField] private Text Score;
+    [SerializeField] private Text LivesLeft; 
     
-    private float _score;
+    private int _score;
     private GameObject _player;
     private StateEnum _currentState;
-    private int _currentLife;
+    private int _currentLives;
     
     // Start is called before the first frame update
     void Start()
     {
-        _currentLife = _remainingLives;
+        _currentLives = RemainingLives;
+        LivesLeft.text = _currentLives.ToString();
+        _score = 0;
+        Score.text = _score.ToString();
         SwitchState(StateEnum.MENU);
     }
 
     // Update is called once per frame
     void Update()
     {
-        Debug.Log(_currentState);
+        switch (_currentState)
+        {
+            case StateEnum.MENU:
+                break;
+            case StateEnum.PLAY:
+                if (Input.GetButtonDown("Cancel"))
+                    SwitchState(StateEnum.PAUSE);
+                _score++;
+                Score.text = _score.ToString();
+                break;
+            case StateEnum.PAUSE:
+                break;
+            case StateEnum.GAMEOVER:
+                break;
+        }
     }
     
     public void SwitchState(StateEnum newState)
@@ -97,4 +119,12 @@ public class GameManager : MonoBehaviour
     public void OnPausePressed() => SwitchState(StateEnum.PAUSE);
     
     public void OnResumePressed() => SwitchState(StateEnum.PLAY);
+
+    public void OnRestartPressed()
+    {
+        Destroy(_player);
+        _score = 0;
+        _currentLives = RemainingLives;
+        SwitchState(StateEnum.START);
+    }
 }
