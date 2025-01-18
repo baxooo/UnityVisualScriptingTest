@@ -7,16 +7,19 @@ TagManager:
   - GameManager
   - Bullet
   - AsteroidManager
+  - DeathWall
+  - ShipWall
+  - Asteroid
   layers:
   - Default
   - TransparentFX
   - Ignore Raycast
-  - 
+  - Player
   - Water
   - UI
-  - 
-  - 
-  - 
+  - AsteroidWall
+  - Asteroid
+  - Bullet
   - 
   - 
   - 
