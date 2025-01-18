@@ -48,7 +48,6 @@ public class GameManager : MonoBehaviour
             case StateEnum.PLAY:
                 if (Input.GetButtonDown("Cancel"))
                     SwitchState(StateEnum.PAUSE);
-                _score++;
                 score.text = _score.ToString();
                 break;
             case StateEnum.PAUSE:

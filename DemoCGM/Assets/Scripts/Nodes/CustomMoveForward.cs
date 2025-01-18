@@ -26,6 +26,10 @@ namespace Nodes
                 
                 return Exit;
             });
+            
+            Exit = ControlOutput("Exit");
+            Succession(Enter, Exit);
         }
+        
     }
 }
