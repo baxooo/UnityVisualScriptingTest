@@ -94,7 +94,6 @@ public class GameManager : MonoBehaviour
                 _currentState = state;
                 break;
         }
-
     }
 
     private void EndState()
@@ -127,6 +126,9 @@ public class GameManager : MonoBehaviour
     public void OnRestartPressed()
     {
         Destroy(_player);
+        Destroy(_asteroidSpawner);
+        _player = null;
+        _asteroidSpawner = null;
         _score = 0;
         _currentLives = RemainingLives;
         SwitchState(StateEnum.START);

@@ -380,7 +380,7 @@ GameObject:
   - component: {fileID: 261657542}
   - component: {fileID: 261657541}
   - component: {fileID: 261657540}
-  m_Layer: 6
+  m_Layer: 0
   m_Name: Cube (5)
   m_TagString: DeathWall
   m_Icon: {fileID: 0}
@@ -1344,7 +1344,7 @@ GameObject:
   - component: {fileID: 753918727}
   - component: {fileID: 753918726}
   - component: {fileID: 753918725}
-  m_Layer: 6
+  m_Layer: 0
   m_Name: Cube (7)
   m_TagString: DeathWall
   m_Icon: {fileID: 0}
@@ -2329,7 +2329,7 @@ GameObject:
   - component: {fileID: 1400946291}
   - component: {fileID: 1400946290}
   - component: {fileID: 1400946289}
-  m_Layer: 6
+  m_Layer: 0
   m_Name: Cube (6)
   m_TagString: DeathWall
   m_Icon: {fileID: 0}
@@ -2462,7 +2462,7 @@ GameObject:
   - component: {fileID: 1621261891}
   - component: {fileID: 1621261890}
   - component: {fileID: 1621261889}
-  m_Layer: 6
+  m_Layer: 0
   m_Name: Cube (4)
   m_TagString: DeathWall
   m_Icon: {fileID: 0}
