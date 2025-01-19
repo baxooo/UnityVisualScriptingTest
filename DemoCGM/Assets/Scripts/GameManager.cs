@@ -130,4 +130,5 @@ public class GameManager : MonoBehaviour
         _currentLives = RemainingLives;
         SwitchState(StateEnum.START);
     }
+    public void AddPoints(int points) => _score += points;
 }

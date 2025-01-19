@@ -1,4 +1,5 @@
 ﻿using Unity.VisualScripting;
+using UnityEditor;
 using UnityEngine;
 
 namespace Nodes
@@ -18,24 +19,20 @@ namespace Nodes
         {
             Position = ValueInput<Vector3>("Position");
 
-            
-            Enter = ControlInput("Enter", (flow) =>
-            {
-                var gameObject = new GameObject();
-                var target = flow.GetValue<Vector3>(Position);
-                gameObject.transform.position = target;
-                flow.SetValue(Transform, gameObject.transform);
-                return Exit;
-            });
-            
-            Exit = ControlOutput("Exit");
             Transform = ValueOutput<Transform>("Transform", (flow) =>
             {
                 var gameObject = new GameObject();
                 var target = flow.GetValue<Vector3>(Position);
+                
                 gameObject.transform.position = target;
-                return gameObject.transform;
+                var transform = gameObject.transform;
+                
+                Object.Destroy(gameObject);
+                return transform;
             });
+            
+            Enter = ControlInput("Enter", (flow) => Exit);
+            Exit = ControlOutput("Exit");
 
             Succession(Enter, Exit);
         }
