@@ -48,7 +48,8 @@ public class GameManager : MonoBehaviour
             case StateEnum.PLAY:
                 if (Input.GetButtonDown("Cancel"))
                     SwitchState(StateEnum.PAUSE);
-                score.text = _score.ToString();
+                score.text = "Score: " + _score.ToString();
+                livesLeft.text = "Lives: " + _currentLives.ToString();
                 break;
             case StateEnum.PAUSE:
                 break;
@@ -131,4 +132,11 @@ public class GameManager : MonoBehaviour
         SwitchState(StateEnum.START);
     }
     public void AddPoints(int points) => _score += points;
+    
+    public void RemoveLife()
+    {
+        _currentLives--;
+        if (_currentLives <= 0)
+            SwitchState(StateEnum.GAMEOVER);
+    }
 }
